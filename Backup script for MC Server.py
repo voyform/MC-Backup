@@ -27,17 +27,21 @@ def currentDate():
     current_time = c.strftime('%H:%M')
     return current_time
 
+
 #czeka 15 minut = 900 sekund
 def czekanie(t):
         time.sleep(t)
+
 
 def pauseProcesses(PID):
     for item in PID:
         psutil.Process(item).suspend()
 
+
 def resumeProcesses(PID):
     for item in PID:
         psutil.Process(item).resume()
+
 
 def getPIDs(processes):
     pids = []
@@ -47,14 +51,15 @@ def getPIDs(processes):
                 pids.append(proc.pid)
     return pids
 
-def main():
+
+if __name__ == "__main__":
     processes = ['minecraft', 'javaw.exe', 'Curse.Agent']
     McPID = []
     t = 900
     process = 'minecraft.exe'
-    source = r"C:\Users\wojte\curseforge\minecraft\Instances\Chosen's Modded Adventure\saves\Eryk i Wojtek turbo przygoda"
-    destination1 = r"D:\Minecraft Backups\Backup 1 Eryk i Wojtek"
-    destination2 = r"D:\Minecraft Backups\Backup 2 Eryk i Wojtek"
+    source = r"<path_to_your_mc_folder>\saves\<your_world>"
+    destination1 = r"<backup_destination>"
+    destination2 = r"<2nd_backup_destination>
 
     McPID = getPIDs(processes)
     os.chmod(r"D:\Minecraft Backups", 0o777)
@@ -89,5 +94,3 @@ def main():
             makeBackUp(source, destination1)
             print (f'Exit backup made at {currentDate()}.\nProcess exited. Shutting down...')
     else: print ('Process not found :(')
-
-main()
