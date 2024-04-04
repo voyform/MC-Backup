@@ -52,7 +52,7 @@ def getPIDs(processes):
     return pids
 
 
-if __name__ == "__main__":
+def main():
     processes = ['minecraft', 'javaw.exe', 'Curse.Agent']
     McPID = []
     t = 900
@@ -94,3 +94,7 @@ if __name__ == "__main__":
             makeBackUp(source, destination1)
             print (f'Exit backup made at {currentDate()}.\nProcess exited. Shutting down...')
     else: print ('Process not found :(')
+
+
+if __name__ == "__main__":
+    main()
