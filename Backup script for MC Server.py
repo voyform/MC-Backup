@@ -59,10 +59,10 @@ def main():
     process = 'minecraft.exe'
     source = r"<path_to_your_mc_folder>\saves\<your_world>"
     destination1 = r"<backup_destination>"
-    destination2 = r"<2nd_backup_destination>
+    destination2 = r"<2nd_backup_destination>"
 
     McPID = getPIDs(processes)
-    os.chmod(r"D:\Minecraft Backups", 0o777)
+    os.chmod(r"parent_folder_to_your_backups", 0o777)
     if findProcess(process): 
         print ('Process found.')
         while findProcess(process):
